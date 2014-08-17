@@ -1,0 +1,44 @@
+body{
+	width: 1004px;
+	margin: 0 auto;
+	padding: 10px;
+	background: rgb(249,249,249);
+	color: rgb(206, 72, 74);
+}
+h1{
+	text-align: center;
+}
+div{
+	padding: 10px;
+	position: relative;
+	
+}
+div>div{
+	height: 100%;
+	display: inline-block;
+	width: 47%;
+	float: left;
+}
+.letter{
+	border-left: 1px solid rgb(232, 232, 232);
+}
+.checkbox li{	
+	margin-left: 0px;
+	margin-bottom: 10px;
+}
+.checkbox  li img{
+	margin: auto 0;
+	margin-left: -50px;
+	margin-right: 20px;
+	height: 25px;
+	
+}
+.checkbox  li dt{
+	display: inline-block;
+	width: 90%;
+}
+.checkbox  li dd{
+	display: inline-block;
+	margin: 0;
+	float: right;
+}

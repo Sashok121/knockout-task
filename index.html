@@ -3,8 +3,28 @@
 <head>
 	<meta charset="utf-8">
 	<title>My knockout task</title>
+	<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 </head>
 <body>
+	<h1>Легкое использование существующих электронных документов (инструкций)</h1>
+	<div>
+		<div class = "checkbox">
+			<h2>Список литературы:</h2>
+			<ol data-bind = "foreach : books">
+				<li>
+					<img data-bind = "attr{ src : src, style: style}">
+					<dt data-bind = "text: value">ffff</dt>
+					<dd><input type = "checkbox" data-bind = "attr{}"/></dd>
+				</li>
+			</ol>
+		</div>
+		<div class = "letter">
+			<h2>Отправить письмо:</h2>
+			<input type = "text">
+		</div>
 
+	</div>
+	<script src = "scripts/knockout-3.1.0.js"></script>
+	<script src = "scripts/script.js"></script>
 </body>
 </html>
