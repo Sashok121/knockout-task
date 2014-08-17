@@ -14,13 +14,14 @@
 				<li>
 					<img data-bind = "attr{ src : src, style: style}">
 					<dt data-bind = "text: value">ffff</dt>
-					<dd><input type = "checkbox" data-bind = "attr{}"/></dd>
+					<dd><input type = "checkbox" data-bind = "attr{name: 'book'+index}"/></dd>
 				</li>
 			</ol>
 		</div>
 		<div class = "letter">
 			<h2>Отправить письмо:</h2>
-			<input type = "text">
+			<dt>E-mail:</dt>
+			<dd><input type = "text" name = "eMail"></dd>
 		</div>
 
 	</div>
