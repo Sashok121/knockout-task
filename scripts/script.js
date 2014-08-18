@@ -33,22 +33,36 @@ var JSONText = {
 	]
 }
 
-function ReservationsViewModel(){
+function ReservationsViewModel( eMail, text, message){
 	var self = this;	
 	self.books = JSONText.books;
-	var index = 0;
+	var index = 1;
+    self.checkArray = ko.observableArray();
 	self.books.forEach(function(key){
 		key.index = index++;
-		key.style = "";
+        key.src = "";
+        key.select = false;
+        key.checkt = ko.observable(false);
+
 		if (key.type =="pdf") {
 			key.src = "assets/images/PDF_Icon.png";				
 		}
-		else{
-			key.src = "";
-			key.style = "margin-left:-25px;";
-		}		
-		
-	
+
 	});
+
+    self.eMail = ko.observable(eMail);
+    self.text = ko.observable(text);
+    self.message = ko.observable(message);
+
+    self.checkArrayBook = ko.computed(function() {
+        var arrBooks = [];
+        self.books.forEach(function(val){
+            if(val.checkt()){
+                arrBooks.push(val);
+            }
+        });
+
+        return arrBooks;
+    },self);
 }
 ko.applyBindings(new ReservationsViewModel());

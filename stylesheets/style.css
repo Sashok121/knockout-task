@@ -24,21 +24,34 @@ div>div{
 }
 .checkbox li{	
 	margin-left: 0px;
-	margin-bottom: 10px;
+	margin-bottom: 25px;
+    list-style-type: none;
 }
 .checkbox  li img{
-	margin: auto 0;
-	margin-left: -50px;
+	margin: auto;
 	margin-right: 20px;
 	height: 25px;
 	
 }
 .checkbox  li dt{
 	display: inline-block;
-	width: 90%;
+	width: 80%;
 }
 .checkbox  li dd{
 	display: inline-block;
 	margin: 0;
 	float: right;
+}
+.letter dd{
+    width: 80%;
+    margin: 0;
+}
+.letter dd input,.letter dd textarea{
+    width: 100%;
+}
+.letter dd textarea{
+    height: 100px;
+}
+.letter dd p {
+    margin: 0;
 }

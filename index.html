@@ -10,18 +10,27 @@
 	<div>
 		<div class = "checkbox">
 			<h2>Список литературы:</h2>
-			<ol data-bind = "foreach : books">
+			<ul data-bind = "foreach : books">
 				<li>
-					<img data-bind = "attr{ src : src, style: style}">
-					<dt data-bind = "text: value">ffff</dt>
-					<dd><input type = "checkbox" data-bind = "attr{name: 'book'+index}"/></dd>
+					<img data-bind = "attr{ src : src}">
+					<dt data-bind = "text: index+'.  '+value">ffff</dt>
+					<dd><input type = "checkbox" data-bind = "attr{value: 'book'+index}, checked: checkt"/></dd>
 				</li>
-			</ol>
+			</ul>
 		</div>
 		<div class = "letter">
 			<h2>Отправить письмо:</h2>
 			<dt>E-mail:</dt>
-			<dd><input type = "text" name = "eMail"></dd>
+			<dd><input data-bind='value: eMail' /></dd>
+            <dt>Тема:</dt>
+            <dd><input data-bind='value: text'/></dd>
+            <dt>Текст сообщения:</dt>
+            <dd><textarea data-bind='value: message'></textarea></dd>
+            <dt>Прикрепленные файлы:</dt>
+            <dd data-bind = "foreach: checkArrayBook()">
+                <p data-bind="text:index+'. '+value"></p>
+            </dd>
+            <button>Send</button>
 		</div>
 
 	</div>
