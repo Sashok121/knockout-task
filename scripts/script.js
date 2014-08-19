@@ -34,7 +34,7 @@ var JSONText = {
 }
 
 function ReservationsViewModel( eMail, text, message){
-	var self = this;	
+	var self = this;
 	self.books = JSONText.books;
 	var index = 1;
     self.checkArray = ko.observableArray();
@@ -45,7 +45,7 @@ function ReservationsViewModel( eMail, text, message){
         key.checkt = ko.observable(false);
 
 		if (key.type =="pdf") {
-			key.src = "assets/images/PDF_Icon.png";				
+			key.src = "assets/images/PDF_Icon.png";
 		}
 
 	});
@@ -53,16 +53,39 @@ function ReservationsViewModel( eMail, text, message){
     self.eMail = ko.observable(eMail);
     self.text = ko.observable(text);
     self.message = ko.observable(message);
-
+    self.modalHeader = ko.observable();
+    self.inputErray = ko.observable();
     self.checkArrayBook = ko.computed(function() {
         var arrBooks = [];
+        var notInput = [];
         self.books.forEach(function(val){
             if(val.checkt()){
                 arrBooks.push(val);
             }
         });
-
+        if (!arrBooks.length){
+            notInput[0] = "не выбрали ни одну книгу";
+        }
+        if (arrBooks.length){
+            notInput.splice(0,1);
+        }
+        if (!self.eMail()){
+            notInput[1] = "не ввели e-mail";
+        }
+        if (self.eMail()){
+            notInput.splice(1,1);
+        }
+        if(notInput.length != 0){
+            self.modalHeader("Вы "+notInput);
+        } else {
+            self.modalHeader("Вы ввели:");
+            self.inputErray([{text:"email: ",value:self.eMail()},{text:"Тема: ",value:self.text()},{text:"Текст: ",value:self.message()},{text:"Вы выбрали книгы: ",value:""}]);
+            //console.lof(self.inputErray());
+        }
         return arrBooks;
+
     },self);
+
+
 }
 ko.applyBindings(new ReservationsViewModel());
